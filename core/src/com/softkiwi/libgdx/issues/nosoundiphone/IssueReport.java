@@ -15,6 +15,8 @@ public class IssueReport extends ApplicationAdapter {
 	
 	@Override
 	public void create () {
+        super.create();
+
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
         music = Gdx.audio.newMusic(new FileHandle("test.m4a"));
@@ -29,4 +31,12 @@ public class IssueReport extends ApplicationAdapter {
 		batch.draw(img, 0, 0);
 		batch.end();
 	}
+
+    @Override
+    public void dispose() {
+        music.stop();
+        music.dispose();
+
+        super.dispose();
+    }
 }
